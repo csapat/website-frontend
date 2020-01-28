@@ -1,38 +1,205 @@
-.App {
+body{
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+  background-color: #eee;
+  position: relative;
+}
+*{
+  font-family: 'Roboto Slab', serif;
+}
+a{
+  text-decoration: none !important;
+}
+.bg{
+  background-image: url(/img/space.jpeg);
+  background-size: contain;
+  background-attachment: fixed;
+  height: 600px;
+  max-height: 90vh;
+}
+
+.bg>.container{
+  position: relative;
+  height: 100%;
+}
+
+.bg.small{
+  height: 160px;
+}
+
+.logo-area{
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 15px);
+  transform: translate(-50%, -50%);
+  font-weight: 100;
+}
+
+.bg.small .logo-area{
+  
+}
+
+.bg.small .logo-area .logo{
+  width: 150px;
+}
+.bg.small .logo-area h2{
+  display: none;
+}
+
+.logo-area h2{
+  font-weight: 400;
+}
+
+.logo-area .logo{
+  width: 400px;
+  max-width: 60vw;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.container{
+  position: relative;
+}
+
+.content{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px rgba(34, 34, 34, 0.4);
+  margin-top: -50px;
+  margin-bottom: 80px;
+  padding: 60px 80px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content.blog-content{
+  padding: 40px 50px;
+  text-align: left;
+}
+.content.blog-content h2{
+  margin-bottom: 10px;
+}
+.content.blog-content h2:hover{
+  color: #ff9e1d;
+  transition: color 0.1s;
+}
+a h2{
+  color: #212529;
+  transition: color 0.1s;
+}
+.content h2{
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-family: 'Roboto Slab', serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content hr{
+  margin: 60px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.content p{
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+}
+.center, p.center{
+  text-align: center;
+}
+.content p.text{
+  text-align: justify;
+  text-align-last: left;
 }
 
-.App-link {
-  color: #61dafb;
+.content h2.title{
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.copyright{
+  bottom: -52px;
+  left: 50%;
+  text-align: center;
+  position: absolute;
+  transform: translateX(-50%);
+}
+.team{
+  width: 100%;
+  margin: 50px 0;
+}
+.team .person{
+}
+
+.team img{
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team .person span{
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 20px 0 50px 0;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.btn{
+  display: inline;
+}
+.blog{
+  margin-top: 40px;
+}
+.blog-post{
+  margin-bottom: 0px;
+  transition: all 0.1s;
+}
+.blog-post:hover .title{
+  color: #ff9e1d;
+}
+.blog-post:hover .text p{
+  color: #000;
+}
+.blog-post .title{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;    
+}
+
+.blog-post .text p{
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+}
+
+.btn.btn-outline-primary{
+  color: #ff9e1d;
+  border-color: #ff9e1d;   
+}
+.btn.btn-outline-primary:hover{
+  color: #fff;
+  background-color: #ff9e1d;   
+}
+.button:active{
+  color: #fff;
+  background-color: #b36500  !important;
+}
+.blog-post-container *{
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+.blog-post-container>p{
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+.blog-post-container img{
+  width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+  .content{
+    padding: 40px 20px;
   }
 }

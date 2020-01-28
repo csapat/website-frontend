@@ -1,0 +1,52 @@
+[
+    {
+    "id": 1,
+    "title": "First attempt at making a composite shell",
+    "text": "\nAt our first attempt we used a 60 mm aluminium pipe as the mould with a pva releas agent. We placed 3 layers of fabric on each other, around the form. Two with the strands gouing diagonaly and one with the strands going parallel with the axis of the tube. We applied a leyer of peel ply and breather cloth. Then we placed the mould with the fabric on it into a large vacuum bag and pulled a vacuum with a membrane pump.\nAfter it was cured we inspected the results. The layers have slipped on each other qnd buckled. Also, ve could not get the composite tube down from the mould. The pva form release did not work so we had to cut it loos from the aluminium tube. Next time we have to try something different.\n\n![](http://localhost:1337/uploads/24be9e0940054b9382b2d03218b9f8fc.jpg)",
+    "date": "2019-10-28",
+    "slug": "composite-shell",
+    "description": "We were really interested in composite manufacturing so we chose to make the frame of the cansat from a glass fibre composite. To make this happen we sourced 1 kg of epoxy resin with about 50 minutes of working time, several meters of 200 g/square meter bidirectional glass fibre fabric and the necessary vacuuming consumables.",
+    "created_at": "2020-01-28T15:17:23.779Z",
+    "updated_at": "2020-01-28T17:01:41.275Z"
+    },
+    {
+    "id": 5,
+    "title": "Electrometer",
+    "text": "For the first attempt I built a simple charge sensitive amplifier with only one FET, based on this article: https://www.instructables.com/id/Arduino-ElectrometerCapacitive-Object-Sensor/\n  \n  ![text](/uploads/727eac796771440e8b2d70e36960dff2.jpeg) ![text](/uploads/03b069c4b4b64c50933cf1d18aa63c04.jpeg) \n  \n  I added a pull down resistor between the gate and the source with a value of a few megaohms.\nThe instrument was tested by connecting the input to a foil electroscope and a metal tube, insulated from the ground. The metal tube was placed next to a Van der Graaf generator. As the generator was switched on the voltage measured on the output of the amplifier started to increase untill the generators top capacitance was discharged. The maximum measured voltage was dependent on the distance between the generator and the metal tube.\nBased on the articele: Estimates of cloud charge densities in thunderstorms by\n Thomas C. Marshall and Madbeth Stolzenburg, we can expect multiple magnitudes smaller charge densities than in our experiments. Therefor we need to conduct more experiments, possibly with circuits like JFET input operational amplifiers.",
+    "date": "2020-01-08",
+    "slug": "electrometer",
+    "description": "We are planning to place an electrometer on our flight device. The electrometer will be measuring the potential difference during the flight. With the help of this, an indicative value for chance of lightning can be attempted to be calculated, taking the measured air pressure, air temperature and humidity values into account.",
+    "created_at": "2020-01-28T19:45:05.106Z",
+    "updated_at": "2020-01-28T19:45:05.106Z"
+    },
+    {
+    "id": 4,
+    "title": "Electronics - the powersupply",
+    "text": "First of I started designing the powersupply section. The biggest power consumer will be the two servos controlling the paraglider. Each 9g servo draws about 550 mA. The brain of the whole operation, the Arduino Nano v2.3, draws current depending on the task. I estimated the required current, with the sensors, to be around 300 mA. So the powersupply should provide 1.4 A for the duration of the descend. Per guidelines the sat shall be able to operate for 4 hours from its batteries. This means we need at least a 1200 mAh battery for our cansat.\nBecause of the weight limit we opted to use lithium batteries. Standard lithium batteries supply 3.7 volts. The operating voltage of the arduino is 5 V so the lower battery voltage should be upconverted.\nWe can either use a separet boost-converter curicuit plus a battery charger and protection circuit or there are single chips, wich can provide all the functions above. We choosed the second route as I had some prevous experienc with the DD06CVSA module. It can provide 2 A at 5 volts and safely charge and discharge a 3.7 volt lithium battery.\n  \n  ![text](/uploads/31f53db7ad7c4957a43d900d8cb02255.jpg) ![text](/uploads/e0b72d3d2de14acfb8d24433c998882b.jpg)",
+    "date": "2019-12-10",
+    "slug": "powersupply",
+    "description": "To start off the electronics section of our project, we started the building of a breadboard-prototype. It shall have all the functions of the flight hardware but in a flat, easily servicable format.",
+    "created_at": "2020-01-28T19:42:58.241Z",
+    "updated_at": "2020-01-28T19:45:27.583Z"
+    },
+    {
+    "id": 3,
+    "title": "Cutting out the pattern",
+    "text": "\n![text](/uploads/a9522ef4fb39451a9a484bf8c4ebebbe.jpeg) ![text](/uploads/1d8e2f0e33ce45df86d346577a558b75.jpeg) ![text](/uploads/78854f712f0842d89cbdce2ce75a72b7.jpeg)",
+    "date": "2019-11-21",
+    "slug": "cutting-out-the-pattern",
+    "description": "As Artúr brought the patterns of the glider, printed out on A4 size paper sheets, we have done glueing and cutting out it on this day. Hopefully, soon we can cut out the patterns from the fabric and we can start sewing.",
+    "created_at": "2020-01-28T17:18:44.664Z",
+    "updated_at": "2020-01-28T17:24:53.386Z"
+    },
+    {
+    "id": 2,
+    "title": "Composite airframe",
+    "text": "The changes we have done:\n- Using one long fabrick of fibreglass rolled around the mold continously\n- Sealing the corners of the fabrick with duct tape before cutting in order to avoid the fibres slipping beside one another\n- To avoid bubbles and wrinkles in the structure of the material during the application of the epoxy, making fast the end of the fabric to the mold\n- Smoothing out the glass fibre on the mold with a paint roller\n- Placing a vacuum foil between the mold and the composite material for an easier removal\nThis time we put up four layers on the cylinder and five on the sheet.\n\n![text](/uploads/d9f86123945e4880a1244be7270e7d5c.jpeg)",
+    "date": "2019-11-05",
+    "slug": "composite-airframe",
+    "description": "Learning from our first composite airframe manufacturing attempt, we came up with 5 new techniques to create a higher quality skin for our CanSat.",
+    "created_at": "2020-01-28T16:51:22.569Z",
+    "updated_at": "2020-01-28T16:59:07.357Z"
+    }
+    ]
