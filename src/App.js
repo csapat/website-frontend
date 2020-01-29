@@ -56,7 +56,7 @@ const Site = () => {
 			<div className="container">
 				<div className="logo-area">
 						<Link to="/">
-							<img alt="CSapat" data-aos="fade-up" data-aos-offset="-200" data-aos-anchor-placement="top-center" className="logo" src={"/img/csapat-glider-horizontal-white.svg"} />
+							<img alt="CSapat" data-aos="fade-up" data-aos-offset="-200" data-aos-anchor-placement="top-center" className="logo" src={"/img/csapat-glider-lines-horizontal.svg"} />
 						</Link>
 						<h2 data-aos="fade-up" data-aos-delay="100">ESA CanSat 2020</h2>
 				</div>
