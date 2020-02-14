@@ -58,7 +58,7 @@ const Site = () => {
 						<Link to="/">
 							<img alt="CSapat" data-aos="fade-up" data-aos-offset="-200" data-aos-anchor-placement="top-center" className="logo" src={"/img/csapat-glider-lines-horizontal.svg"} />
 						</Link>
-						<h2 data-aos="fade-up" data-aos-delay="100">ESA CanSat 2020</h2>
+						<h2 data-aos="fade-up" data-aos-delay="100">ESA CanSat 2020<br/><small>Hungary</small></h2>
 				</div>
 			</div>
 		</div>
@@ -73,8 +73,33 @@ const Site = () => {
 							<BlogPost posts={posts}/>
 						</Route>
 						<Route path="/" exact>
-							<h2 data-aos="fade-up" data-aos-delay="300">The Project</h2>
-							<p data-aos="fade-up" data-aos-delay="400" className="center">
+							<img data-aos="fade-up" src="img/party-popper.png" className="party-popper"/>
+							<h2 data-aos="fade-up" data-aos-delay="300">We're in!</h2>
+							
+							<p data-aos="fade-up" data-aos-delay="400" className="narrow justify">
+								Our team and our project has been chosen by the European Space Agency to represent Hungary in the CanSat competition of 2020! Yay!<br/>
+								The competition will take place from the 22nd through the 26th of June, 2020. The location as of yet is still unknown.
+								<br/>
+								<small>2020. 01. 09.</small>
+							</p>
+							<br />
+							<Link to="/project">
+								<div data-aos="fade-up" data-aos-delay="500" className="btn btn-outline-primary button">Learn about our project</div>
+							</Link>
+							<hr data-aos="fade-up"/>		
+							<h2 data-aos="fade-up" data-aos-delay="300">What's CanSat?</h2>
+							<p data-aos="fade-up" data-aos-delay="400" className="justify">
+								A CanSat is a simulation of a real satellite, integrated within the volume and shape of a soft drink can.
+								The challenge for the students is to fit all the major subsystems found in a satellite, such as power, sensors and a communication system, into this minimal volume.
+								The CanSat is then launched to an altitude of a few hundred metres by a rocket and its mission begins: to carry out a scientific experiment and achieve a safe landing.
+								<br /><br />
+								<a href="https://www.esa.int/Education/CanSat/What_is_a_CanSat" target="_blank" rel="noopener noreferrer">
+									<div data-aos="fade-up" data-aos-delay="500" className="btn btn-outline-primary button">Read more on esa.int</div>
+								</a>
+							</p>
+							<hr data-aos="fade-up"/>
+							<h2 data-aos="fade-up" data-aos-delay="300">Our Project</h2>
+							<p data-aos="fade-up" data-aos-delay="400" className="narrow center">
 								Our team wants to demonstrate a proof-of-concept CanSat by measuring planetary weather conditions, magnetic field and other planetary phenomena. The CanSat will then conduct a directed landing using GPS data and an integrated paraglider. 
 								<br /><br />
 								<Link to="/project">
@@ -128,32 +153,20 @@ const Site = () => {
 							</Link>
 
 							<hr data-aos="fade-up"/>
-							<h2 data-aos="fade-up">The Team</h2>
-							<p data-aos="fade-up" data-aos-delay="100"> 
-								Our team consists of four enthusiastic physics class students of Berzsenyi Dániel Secondary School (located in Budapest, Hungary). 
-							</p>
-							<div className="team row" >
-								<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-									<img src="img/balazs_artur.jpg" alt="Balázs Artúr" />
-									<span>Balázs Artúr</span>
-								</div>
-								<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="250">
-									<img src="img/farkas_akos.jpg" alt="Balázs Artúr" />
-									<span>Farkas Ákos</span>
-								</div>
-								<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
-									<img src="img/sisak_botond.jpg" alt="Balázs Artúr" />
-									<span>Sisák Botond</span>
-								</div>
-								<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="350">
-									<img src="img/turi_zoltan.jpeg" alt="Balázs Artúr" />
-									<span>Túri Zoltán</span>
-								</div>
-							</div>
+							<Team />
+							<hr data-aos="fade-up"/>
+							<Sponsors />
+							
+
+
+							
+							<hr style={{marginBottom: '8px'}} />
+							<small className="center">CSapat © {new Date().getFullYear()} <br /> Sisák Botond</small>
 						</Route>
 						<Route path="/project">
 							<h2 className="title">The Project</h2>
 							<ReactMarkdown source={project}/>
+							<br/>
 							<Link to="/" style={{marginTop: '50px'}}>
 								<div className="btn btn-outline-primary button">Home</div>
 							</Link>
@@ -162,6 +175,54 @@ const Site = () => {
 				</div>
 			</Route>
 		</Switch>
+		</>
+	)
+}
+
+const Team = ()=>{
+	return (
+		<>
+			<h2 data-aos="fade-up">The Team</h2>
+			<p data-aos="fade-up" data-aos-delay="100" className="center narrow"> 
+				Our team consists of four enthusiastic physics class students of <a className="link" target="_blank" rel="noopener noreferrer" href="https://berzsenyi.hu">Berzsenyi Dániel Secondary School</a> (located in Budapest, Hungary). 
+			</p>
+			<div className="team row" >
+				<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+					<img src="img/balazs_artur.jpg" alt="Balázs Artúr" />
+					<span>Artúr Balázs</span>
+					<small><a className="link" href="mailto:abalazs42@gmail.com">abalazs42@gmail.com</a></small>
+				</div>
+				<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="250">
+					<img src="img/farkas_akos.jpg" alt="Balázs Artúr" />
+					<span>Ákos Farkas</span>
+					<small><a className="link" href="mailto:akosprogram@gmail.com">akosprogram@gmail.com</a></small>
+				</div>
+				<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+					<img src="img/sisak_botond.jpg" alt="Balázs Artúr" />
+					<span>Botond Sisák</span>
+					<small><a className="link" href="mailto:sisak.botond@gmail.com">sisak.botond@gmail.com</a></small>
+				</div>
+				<div className="person col-md-3 col-6" data-aos="fade-up" data-aos-delay="350">
+					<img src="img/turi_zoltan.jpeg" alt="Balázs Artúr" />
+					<span>Zoltán Túri</span>
+					<small><a className="link" href="mailto:zozoturi@gmail.com">zozoturi@gmail.com</a></small>
+				</div>
+			</div>
+		</>
+	)
+}
+
+const Sponsors = ()=>{
+	return (
+		<>
+			<h2 data-aos="fade-up">Contributors</h2>
+			<p data-aos="fade-up" data-aos-delay="100" className="center narrow"> 
+				We thank our sponsors and contributors deeply, as without them our ambitions could not have been fulfilled.
+			</p>
+			<br/>
+			<a href="https://berzsenyi.hu" target="_blank" rel="noopenere noreferrer"  data-aos="fade-up" data-aos-delay="100">
+				<img src="img/berzsenyi.png" alt="Berzsenyi Gimnázium" style={{width: '140px'}} />
+			</a>
 		</>
 	)
 }
