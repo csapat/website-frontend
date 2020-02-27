@@ -111,6 +111,12 @@ a h2{
 .center, p.center{
   text-align: center;
 }
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
 .narrow{
   max-width: 520px;
   margin: auto;
@@ -217,9 +223,23 @@ a h2{
   margin-bottom: 15px;
 }
 
+input{
+  display: block;
+  margin: auto;
+  width: 250px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #d2d2d2;
+  max-width: 100%;
+}
+
 @media only screen and (max-width: 992px) {
   .content{
     padding: 40px 20px;
   }
 }
 
+.admin .input-group{
+  margin-bottom: 20px;
+}

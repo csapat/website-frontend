@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
+//import CKEditor from 'ckeditor4-react'
+import CKEditor from '@ckeditor/ckeditor5-react'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -12,6 +15,8 @@ import {
 
 import Project from './Project.md'
 import Posts from './posts.json'
+
+const apiUrl = 'http://localhost:5005/api'
 
 const App = ()=>{
 	return (
@@ -73,7 +78,7 @@ const Site = () => {
 							<BlogPost posts={posts}/>
 						</Route>
 						<Route path="/" exact>
-							<img data-aos="fade-up" src="img/party-popper.png" className="party-popper"/>
+							<img alt="" data-aos="fade-up" src="img/party-popper.png" className="party-popper"/>
 							<h2 data-aos="fade-up" data-aos-delay="300">We're in!</h2>
 							
 							<p data-aos="fade-up" data-aos-delay="400" className="narrow justify">
@@ -171,6 +176,9 @@ const Site = () => {
 								<div className="btn btn-outline-primary button">Home</div>
 							</Link>
 						</Route>
+						<Route path="/admin">
+							<Admin />
+						</Route>
 					</div>
 				</div>
 			</Route>
@@ -220,9 +228,20 @@ const Sponsors = ()=>{
 				We thank our sponsors and contributors deeply, as without them our ambitions could not have been fulfilled.
 			</p>
 			<br/>
-			<a href="https://berzsenyi.hu" target="_blank" rel="noopenere noreferrer"  data-aos="fade-up" data-aos-delay="100">
+			<a href="https://berzsenyi.hu" target="_blank" rel="noopener noreferrer"  data-aos="fade-up" data-aos-delay="100">
 				<img src="img/berzsenyi.png" alt="Berzsenyi Gimnázium" style={{width: '140px'}} />
 			</a>
+			<br/>
+			<br/>
+			<br/>
+			<p data-aos="fade-up" data-aos-delay="100" className="center narrow"> 
+				<b>Special thanks to:</b>
+			</p>
+			<p data-aos="fade-up" data-aos-delay="100" className="center narrow"> 
+				Zoltán Túri
+				<br />
+				Tamás Véber
+			</p>
 		</>
 	)
 }
@@ -279,6 +298,109 @@ const BlogPost = (props)=>{
 	)
 }
 
+const Admin = (props)=>{
+	const [posts, setPosts] = React.useState([])
+	
+	useEffect(()=>{
+		axios.get(apiUrl + '/posts').then(res=>{
+			setPosts(res.data)
+		})
+	}, [])
 
+	if (window.sessionStorage.jwt) return <AdminLogin />
+	return (
+		<Router basename="/admin">
+			<Switch>
+				<Route path="/login">
+					<AdminLogin />
+				</Route>
+				<Route path="/posts" exact>
+					<div className="right"><small>Logged in as admin </small>&nbsp;&nbsp;<button className="btn btn-outline-primary btn-sm button">Logout</button></div>
+					<h2 className="title">Posts</h2>
+					<table class="table left">
+						<thead>
+						<tr>
+							<th scope="col">Title</th>
+							<th scope="col">Date</th>
+						</tr>
+						</thead>
+						<tbody>
+						{posts.map(post=>{
+							return (
+								<tr>
+									<td><Link to={"/post/" + post.id}>{post.title}</Link></td>
+									<td>{post.date}</td>
+								</tr>
+							)
+						})}
+						</tbody>
+					</table>
+				</Route>
+				<Route path="/post">
+					<AdminPostEdit />
+				</Route>
+			</Switch>
+		</Router>
+	)
+}
+
+const AdminPostEdit = (props)=>{
+	const [post, setPost] = React.useState({})
+	let postId = window.location.pathname.replace("/admin/post/", "")
+	
+	const [title, setTitle] = React.useState("")
+	const [date, setDate] = React.useState(new Date())
+	const [text, setText] = React.useState(new Date())
+
+	useEffect(()=>{
+		axios.get(apiUrl + '/posts/' + postId).then(res=>{
+			setPost(res.data)
+			setTitle(res.data.title)
+			setDate(res.data.date)
+			setText(res.data.text)
+		})
+	}, [])
+
+	if (window.sessionStorage.jwt) return <AdminLogin />
+	return (
+		<div className="admin">
+			<h2 className="title">Edit post</h2>
+			<div className="input-group input-group-lg">
+				<input type="text" className="form-control" value={title} onChange={e=>setTitle(e.target.value)} placeholder="Title"/>
+			</div>
+			<div className="input-group">
+				<input type="date" className="form-control" value={date} onChange={e=>setDate(e.target.value)} placeholder="Date"/>
+			</div>
+			<div class="input-group">
+				<textarea class="form-control" placeholder="Short description"></textarea>
+			</div>
+			<CKEditor
+                    editor={ClassicEditor}
+                    data={text}
+                    onInit={editor=>{
+						console.log( 'Editor is ready to use!', editor )
+                    }}
+                    onChange={(event, editor) => {
+                        const data = editor.getData()
+                        console.log({event, editor, data})
+					}}
+                />
+		</div>
+	)
+}
+
+const AdminLogin = (props)=>{
+	let [username, setUsername] = useState("")
+	let [password, setPassword] = useState("")
+
+	return (
+		<div>
+			<h2>Login</h2>
+			<input placeholder="Username" value={username} onChange={e=>setUsername(e.target.value)}/>
+			<input placeholder="Password" value={password} onChange={e=>setPassword(e.target.value)}/>
+			<button className="btn btn-outline-primary button">Login</button>
+		</div>
+	)
+}
 
 export default App
