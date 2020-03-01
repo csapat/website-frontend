@@ -3,8 +3,8 @@ import './App.css'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 //import CKEditor from 'ckeditor4-react'
-import CKEditor from '@ckeditor/ckeditor5-react'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+//import CKEditor from '@ckeditor/ckeditor5-react'
+//import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -176,9 +176,9 @@ const Site = () => {
 								<div className="btn btn-outline-primary button">Home</div>
 							</Link>
 						</Route>
-						<Route path="/admin">
+						{/* <Route path="/admin">
 							<Admin />
-						</Route>
+						</Route> */}
 					</div>
 				</div>
 			</Route>
@@ -297,7 +297,7 @@ const BlogPost = (props)=>{
 		</div>
 	)
 }
-
+/*
 const Admin = (props)=>{
 	const [posts, setPosts] = React.useState([])
 	
@@ -402,5 +402,5 @@ const AdminLogin = (props)=>{
 		</div>
 	)
 }
-
+*/
 export default App
